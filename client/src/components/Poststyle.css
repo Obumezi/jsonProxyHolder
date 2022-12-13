@@ -1,0 +1,8 @@
+p {
+  font-size: 18px;
+}
+.fix {
+  display: flex ;
+  justify-content: space-between ;
+color: aqua;
+}

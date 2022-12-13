@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Posts from "./components/Posts";
+import Posts1 from "./components/Posts1";
 
 
 function App() {
@@ -22,13 +23,13 @@ function App() {
 
   return (
     <div>
-      <h1>Hello World!</h1>
-      <div>
+      {/*  <Cards/> */}
+      <div style={{display:"flex"}}>
         <button onClick={handleClick}>Post Title</button>
 
-        {isShown && <Posts />}
+        {isShown && <Posts />  }
+        <Posts1 />
       </div>
-      
 
       <input
         type="text"
