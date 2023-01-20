@@ -39,6 +39,12 @@ app.get("*", (req, res) => {
   });
 });
 
+
+app.get('/posts/:id', (req, res) => {
+  // Send a response with a simple message
+  res.send('Hello world!');
+});
+
 app.listen(1338, () => {
   console.log("Server listening on port 1338");
 });

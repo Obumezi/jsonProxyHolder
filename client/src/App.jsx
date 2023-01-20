@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
-import Posts from './components/Posts'
+import Posts from "./components/Posts";
+import Posts1 from "./components/Posts1";
+
 
 function App() {
   const [value, setValue] = useState("/posts");
   const [data, setData] = useState("");
-  const [isShown, setIsShown] = useState(false)
-  
-  
-  const handleClick = event =>{
-    setIsShown(current => !current)
-  }
+  const [isShown, setIsShown] = useState(false);
+
+  const handleClick = (event) => {
+    setIsShown((current) => !current);
+  };
 
   useEffect(() => {
     const API_URL = `https://${window.location.hostname}:1338${value}`;
@@ -22,25 +23,22 @@ function App() {
 
   return (
     <div>
-      <h1>Hello World!</h1>
-      <div>
-         <button onClick={handleClick}>showpost</button>
-         
-         {isShown && <Posts/>}
-          
-        
-         
-        </div>
-      
-     
-  
+        {/* <Cards/>  */}
+         <button onClick={handleClick}>Post Title</button>
+      <div style={{display:"flex"}}>
+       
+
+        {isShown && <Posts />  } 
+        {/* <Posts1 /> */}
+      </div>
+
       <input
         type="text"
         placeholder="write the relative URL here to get data"
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
-      {/* <pre>{data}</pre> */}
+      <pre>{data}</pre>
     </div>
   );
 }

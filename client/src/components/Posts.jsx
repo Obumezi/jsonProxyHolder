@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./Posts.css";
+import "./Poststyle.css";
+/* import Card from "react-bootstrap/Card"; */
+import Cards from '../components/Cards'
 
 const Posts = () => {
   const [posts, setPost] = useState([]);
@@ -11,24 +13,19 @@ const Posts = () => {
   const fetchPosts = async () => {
     await fetch(`https://${window.location.hostname}:1338/posts`)
       .then((res) => res.json())
-      .then((data) => setPost(data))
-      .catch((err) => {
+      .then((data) => setPost(data));
+    /*  .catch((err) => {
         console.log(err);
-      });
+      }); */
   };
 
-  console.log(posts);
-
-  return (
-    <ul>
+return (
+    <div className="cardContainer">
       {posts.map(post => (
-        <li key={post.id}>
-          <h3>{post.title}</h3>
-          <p>{post.body}</p>
-        </li>
+        <Cards key={post.id} post={post} />
       ))}
-    </ul>
+    </div>
   );
-};
+}
 
 export default Posts;
