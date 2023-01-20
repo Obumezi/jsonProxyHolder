@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Poststyle.css";
-import Card from "react-bootstrap/Card";
-import ListGroup from "react-bootstrap/ListGroup";
+/* import Card from "react-bootstrap/Card"; */
+import Cards from '../components/Cards'
 
 const Posts = () => {
   const [posts, setPost] = useState([]);
@@ -11,7 +11,7 @@ const Posts = () => {
   }, []);
 
   const fetchPosts = async () => {
-    await fetch(`https://${window.location.hostname}:1338/posts/${8}`)
+    await fetch(`https://${window.location.hostname}:1338/posts`)
       .then((res) => res.json())
       .then((data) => setPost(data));
     /*  .catch((err) => {
@@ -19,20 +19,13 @@ const Posts = () => {
       }); */
   };
 
-  return (
-    <Card className="fix" style={{ width: "18rem" }}>
-      <>
-        <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Card.Text></Card.Text>
-        </Card.Body>
-        <ListGroup className="list-group-flush">
-          <ListGroup.Item> {posts.title}</ListGroup.Item>
-          <ListGroup.Item>{posts.body}</ListGroup.Item>
-        </ListGroup>
-      </>
-    </Card>
+return (
+    <div className="cardContainer">
+      {posts.map(post => (
+        <Cards key={post.id} post={post} />
+      ))}
+    </div>
   );
-};
+}
 
 export default Posts;

@@ -23,12 +23,13 @@ function App() {
 
   return (
     <div>
-      {/*  <Cards/> */}
+        {/* <Cards/>  */}
+         <button onClick={handleClick}>Post Title</button>
       <div style={{display:"flex"}}>
-        <button onClick={handleClick}>Post Title</button>
+       
 
-        {isShown && <Posts />  }
-        <Posts1 />
+        {isShown && <Posts />  } 
+        {/* <Posts1 /> */}
       </div>
 
       <input
