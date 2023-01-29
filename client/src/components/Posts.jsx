@@ -13,7 +13,7 @@ const Posts = () => {
   const fetchPosts = async () => {
     await fetch(`https://${window.location.hostname}:1338/posts`)
       .then((res) => res.json())
-      .then((data) => setPost(data));
+      .then((data) => setPost(data.slice(0,5)));
     /*  .catch((err) => {
         console.log(err);
       }); */
