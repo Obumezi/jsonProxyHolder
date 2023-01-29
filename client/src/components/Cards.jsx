@@ -1,18 +1,20 @@
-import React from 'react';
-import  './Cards.css'
+import React from "react";
+import "./Cards.css";
+import Card from "react-bootstrap/Card";
+import ListGroup from "react-bootstrap/ListGroup";
 
-const Card = (props) => {
+const Cards = (props) => {
   const { post } = props;
 
   return (
-    <div className="card">
-      <h2 className="card-title">{post.title}</h2>
-      <div className="card-body">
-        <p>{post.body}</p>
-        <p>Written by User {post.id}</p>
-      </div>
-    </div>
+    <Card style={{ width: "18rem" }}>
+      <ListGroup variant="flush">
+        <ListGroup.Item>{post.title}</ListGroup.Item>
+        <ListGroup.Item>{post.body}</ListGroup.Item>
+        <ListGroup.Item>Written by User {post.id}</ListGroup.Item>
+      </ListGroup>
+    </Card>
   );
 };
 
-export default Card;
+export default Cards;
