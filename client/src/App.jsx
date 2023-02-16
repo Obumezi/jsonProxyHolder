@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Posts from "./components/Posts";
-import Posts1 from "./components/Posts1";
-
+/* import Posts1 from "./components/Posts1"; */
+import Navbar from "./components/Navbar";
 
 function App() {
   const [value, setValue] = useState("/posts");
@@ -22,24 +22,48 @@ function App() {
   }, [value]);
 
   return (
-    <div>
+    <>
+      <Navbar />
+
+      <div>
         {/* <Cards/>  */}
-         <button onClick={handleClick}>Post Title</button>
-      <div style={{display:"flex"}}>
-       
 
-        {isShown && <Posts />  } 
-        {/* <Posts1 /> */}
-      </div>
+        <h2
+          style={{
+            textAlign: "center",
+            marginTop: "100px",
+            fontWeight: "bold",
+          }}
+        >
+          This is a simple application thats get data from JSON proxy holder and
+          displays it
+        </h2>
 
+        <h2
+          style={{
+            textAlign: "center",
+            marginTop: "100px",
+            fontWeight: "bold",
+          }}
+        >
+          Here are the Top 10 Post
+        </h2>
+
+        <button onClick={handleClick}>Post Title</button>
+        <div style={{ display: "flex" }}>
+          {isShown && <Posts />}
+          {/* <Posts1 /> */}
+        </div>
+        {/* 
       <input
         type="text"
         placeholder="write the relative URL here to get data"
         value={value}
         onChange={(e) => setValue(e.target.value)}
-      />
-      <pre>{data}</pre>
-    </div>
+      /> */}
+        {/*   <pre>{data}</pre> */}
+      </div>
+    </>
   );
 }
 
